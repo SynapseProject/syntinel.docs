@@ -16,7 +16,17 @@ Syntinel is a notification engine that communicates messages to a variety of end
 
 **Resolvers** - Appliations, programs or services that receive the Signal and Cue messages and take action based on those messages. (Ex: stop a service, restart a server, etc...)
 
+**Relay Tier** - The Syntinel application itself.  Responsible for receiving, processing and forwarding Signals, Cues and Status updates.
+
 **Signal Id** - A unique, 10-character string that identifies the original Signal message received.
 
 **Action Id** - A unique, 10-character string that identifies an individual reply (Cue) to a Signal message from a subscriber.
+
+## Components
+
+| Component | Description |
+| --------- | ----------- |
+| Syntinel.Core | The core classes and interfaces that execute the relay tier of the Syntinel application. |
+| Syntinel.Aws | A serverless implementation of Syntinel that runs on the Amazon Web Services platform.  It makes use of the API Gateway, DyanmoDB and Lambda AWS services to implement the application. |
+| Syntinel.Tester | Used primarily for developer testing of the application. |
 
