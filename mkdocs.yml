@@ -1,5 +1,7 @@
 site_name: Syntinel
 pages:
 - Syntinel: index.md
+- Objects:
+  - Inputs: inputs.md
 
 theme: readthedocs
