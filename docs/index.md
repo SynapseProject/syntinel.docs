@@ -2,7 +2,7 @@
 
 Syntinel is a notification engine that communicates messages to a variety of endpoints and can take actions based on replies to those messages.
 
-![Architecture Components](../resources/draw.io/Architecture-Components.png)
+![Architecture Components](resources/draw.io/Architecture-Components.png)
 
 ## Glossary
 
