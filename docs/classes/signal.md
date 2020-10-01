@@ -1,5 +1,3 @@
-# Syntinel Inputs
-
 ## Signal Messages
 
 A Signal message is sent by reporters into Syntinel to generate an alert to one or more channels.

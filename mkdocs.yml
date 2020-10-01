@@ -1,7 +1,7 @@
 site_name: Syntinel
 pages:
 - Syntinel: index.md
-- Objects:
-  - Inputs: inputs.md
+- Inputs:
+  - Signal: classes/signal.md
 
 theme: readthedocs
