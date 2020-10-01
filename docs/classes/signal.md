@@ -137,7 +137,7 @@ A Signal message is sent by reporters into Syntinel to generate an alert to one 
 
 
 #### **VariableType**
-Enumeration of Variables Types
+Enumeration of Variable Types
 
 - *number* (Not Yet Implemented)
 - *text* (Not Yet Implemented)
@@ -219,9 +219,19 @@ Obviously, the logic for actually interacting with the ec2 instance would be in 
 }
 ````
 
+Result In Teams :
+
+![](../resources/signals/signal-teams.png)
+
+Result In Slack : 
+
+![](../resources/signals/signal-slack-1.png)
+![](../resources/signals/signal-slack-2.png)
+
 #### **Sample Signal Using A Template**
 
 Same as the signal above, but the majority of the signal message is being stored as a template, and only the relevant fields would need to be passed now (instance and notify).
+
 
 Signal : 
 ````json
@@ -307,6 +317,14 @@ Template Record:
 }
 ````
 
+Result In Teams :
+
+![](../resources/signals/signal-template-teams.png)
+
+Result In Slack : 
+
+![](../resources/signals/signal-template-slack.png)
+
 #### **Simple Alert**
 
 Sends a simple notification to the channels, displaying a main message and 2 "sub-messages".  There are no actions to be taken on this Signal message.
@@ -328,3 +346,12 @@ Sends a simple notification to the channels, displaying a main message and 2 "su
   }
 }
 ````
+
+Result In Teams :
+
+![](../resources/signals/simple-alert-teams.png)
+
+Result In Slack : 
+
+![](../resources/signals/simple-alert-slack.png)
+
