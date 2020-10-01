@@ -138,6 +138,7 @@ A Signal message is sent by reporters into Syntinel to generate an alert to one 
 
 #### **VariableType**
 Enumeration of Variables Types
+
 - *number* (Not Yet Implemented)
 - *text* (Not Yet Implemented)
 - *boolean* (Not Yet Implemented)
