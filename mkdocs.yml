@@ -6,8 +6,7 @@ pages:
   - Status: classes/status-request.md
 - Resolvers:
   - Overview: resolvers.md
-  - Types:
-    - Echo: resolvers/echo.md
-    - AWSLambda: resolvers/aws-lambda.md
+  - Echo Resolver: resolvers/echo.md
+  - AWSLambda Resolver: resolvers/aws-lambda.md
 
 theme: readthedocs
