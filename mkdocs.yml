@@ -4,8 +4,10 @@ pages:
 - Core Inputs:
   - Signal: classes/signal-request.md
   - Status: classes/status-request.md
-- Resolvers: resolvers.md
-  - Echo: resolvers/echo.md
-  - AWSLambda: resolvers/aws-lambda.md
+- Resolvers:
+  - Overview: resolvers.md
+  - Types:
+    - Echo: resolvers/echo.md
+    - AWSLambda: resolvers/aws-lambda.md
 
 theme: readthedocs
