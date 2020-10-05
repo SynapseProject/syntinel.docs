@@ -1,7 +1,11 @@
 site_name: Syntinel
 pages:
 - Syntinel: index.md
-- Inputs:
-  - Signal: classes/signal.md
+- Core Inputs:
+  - Signal: classes/signal-request.md
+  - Status: classes/status-request.md
+- Resolvers: resolvers.md
+  - Echo: resolvers/echo.md
+  - AWSLambda: resolvers/aws-lambda.md
 
 theme: readthedocs

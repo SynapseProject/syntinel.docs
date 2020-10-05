@@ -115,7 +115,7 @@ A Signal message is sent by reporters into Syntinel to generate an alert to one 
 |*inputs*|List of [SignalVariable](#signalvariable)|No|(Not Yet Implemented)A list of items to display in the message which don't necessarily trigger an action, but provide additional input on the action taken.
 |actions|List of [SignalVariable](#signalvariable)|No|A list of possible actions that can be taken on a Cue.
 |*defaultAction*|String|No|(Not Yet Implemented)The default action to take when this cue is selected and no action has been specified.
-|template|String|No|The Template Id to be used for this Cue.  (TemplateType : CueOption)
+|template|String|No|The Template Id to be used for this Cue.  (TemplateType = CueOption)
 |arguments|Dictionary of Objects|No|The arguments to be passed into the template for completing the Cue.
 
 #### **Resolver**
