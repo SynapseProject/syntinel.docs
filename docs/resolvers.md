@@ -36,8 +36,7 @@ Coming Soon
 |-----|----|--------|-----------
 |id|String|Yes|The Id field of the Signal message.
 |actionId|String|Yes|The ActionId field of the reply sent from the subscribers.
-|cueId|String|Yes|The specific CueOption selected by the subscriber on which the action was taken.
-|config|Dictionary of Objects (JSON)|No|The "config" section of the resolver, specified in the Signal message.
+|cueId|String|Yes|The name of the CueOption in the Signal message that was selected by the subscriber on which the action was taken.
 |signal|Signal|Yes|The original signal message sent to the subscribers.
 |actions|Dictionary of [ActionType](#actiontype)|Yes|A dictionary of all actions taken against this signal (including the current action).
 |trace|Dictionary of Object (JSON)|No|A log of events that have occured for this signal message.
@@ -60,3 +59,107 @@ Coming Soon
 |values|List of String|No|The value or values selected for the variable.
 
 ### Examples
+
+````json
+{
+    "id": "0X7ZKIFE4",
+    "actionId": "0X7ZN7XYF",
+    "cueId": "ec2",
+    "signal": {
+        "reporterId": "_default",
+        "routerId": "MyId",
+        "routerType": "MyIdType",
+        "name": "Utilization",
+        "description": "EC2 Utilization Montior",
+        "maxReplies": 1,
+        "cues": {
+            "ec2": {
+                "name": "EC2 Usage",
+                "description": "Server [i-888888888888] has been running for 7 days.  Would you like to take action against it?",
+                "resolver": {
+                    "name": "AWSLambda",
+                    "notify": true,
+                    "config": {
+                        "name": "echo"
+                    }
+                },
+                "inputs": [],
+                "actions": [
+                    {
+                        "name": "Perform Action",
+                        "id": "action",
+                        "description": "Choose action to take against EC2 instances.",
+                        "type": "choice",
+                        "values": {
+                            "reboot": "Reboot Instance",
+                            "terminate": "Terminate Instance",
+                            "stop": "Stop Instance",
+                            "hibernate": "Stop and Hibernate Instance"
+                        },
+                        "defaultValue": "stop"
+                    },
+                    {
+                        "name": "Ignore Alert",
+                        "id": null,
+                        "description": "Ignore this alert.",
+                        "type": "button",
+                        "values": null,
+                        "defaultValue": "ignore"
+                    },
+                    {
+                        "name": "Disable Alert",
+                        "id": null,
+                        "description": "Disable this alert.",
+                        "type": "button",
+                        "values": null,
+                        "defaultValue": "disable"
+                    }
+                ],
+                "defaultAction": "Perform Action",
+                "template": null,
+                "arguments": null
+            }
+        },
+        "defaultCue": null,
+        "defaultCueTimeout": 0,
+        "includeId": true
+    },
+    "actions": {
+        "0X7ZN7XYF": {
+            "cueId": "ec2",
+            "variables": [
+                {
+                    "name": "action",
+                    "values": [
+                        "reboot"
+                    ]
+                }
+            ],
+            "isValid": true,
+            "status": "New",
+            "time": "2020-10-07T20:02:09.0104309Z"
+        }
+    },
+    "trace": {
+        "0X7ZKJZQ9_SignalReply": {
+            "id": "0X7ZKIFE4",
+            "time": "2020-10-07T20:00:10.609855Z",
+            "results": [
+                {
+                    "channelType": "teams",
+                    "code": "Success",
+                    "message": "Success",
+                    "channelId": "_defaultTeams"
+                },
+                {
+                    "channelType": "slack",
+                    "code": "Success",
+                    "message": "Success",
+                    "channelId": "_default"
+                }
+            ],
+            "statusCode": "Success"
+        }
+    }
+}
+````
