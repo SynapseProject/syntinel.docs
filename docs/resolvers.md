@@ -26,7 +26,48 @@ Each resolver receives the same information about the original Signal messages a
 ### Json Schema
 
 ````json
-Coming Soon
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [ "id", "actionId", "cueId", "signal", "actions" ],
+  "properties": {
+    "id": { "type": "string" },
+    "actionId": { "type": "string" },
+    "cueId": { "type": "string" },
+    "signal": {
+    	*** Add Signal Json Schema Here ***
+    },
+    "actions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [ "cueId", "variables", "time" ],
+        "properties": { 
+          "cueId": { "type": "string"},
+          "variables": { "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "values": { "type": "array",
+                  "items": [ { "type": "string" } ]
+                }
+              }
+            }
+          ]
+        },
+          "isValid": { "type": "boolean" },
+          "status": { "type": "string" },
+          "time": { "type": "string" }
+        }
+      }
+    },
+    "trace": {
+      "type": "object"
+    }
+  }
+}
 ````
 
 ### Field Descriptions
