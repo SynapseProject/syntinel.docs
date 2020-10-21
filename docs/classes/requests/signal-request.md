@@ -3,7 +3,7 @@
 A Signal message is sent by reporters into Syntinel to generate an alert to one or more channels.
 
 ### Class Diagram
-![Signal Message](../resources/draw.io/ClassDiagram-SignalMessage.png)
+![Signal Message](../../resources/draw.io/ClassDiagram-SignalMessage.png)
 
 ### JSON Schmea
 ````json

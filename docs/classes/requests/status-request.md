@@ -3,7 +3,7 @@
 A Status message is sent by resolvers to update Syntinel with the status of the requested actions.
 
 ### Class Diagram
-![Signal Message](../resources/draw.io/ClassDiagram-StatusMessage.png)
+![Signal Message](../../resources/draw.io/ClassDiagram-StatusMessage.png)
 
 ### JSON Schmea
 ````json

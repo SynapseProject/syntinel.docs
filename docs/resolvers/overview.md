@@ -21,7 +21,7 @@ Each resolver receives the same information about the original Signal messages a
 
 ### Class Diagram
 
-![Resolver Request](resources/draw.io/ClassDiagram-ResolverMessage.png)
+![Resolver Request](../resources/draw.io/ClassDiagram-ResolverMessage.png)
 
 ### Json Schema
 

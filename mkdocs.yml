@@ -12,9 +12,10 @@ pages:
     - Signal DB Record: classes/database/signal-db.md
     - Template DB Record: classes/database/template-db.md
 - Resolvers:
-  - Overview: resolvers.md
-  - Echo Resolver: resolvers/echo.md
-  - AWSLambda Resolver: resolvers/aws-lambda.md
+  - Overview: resolvers/overview.md
+  - Implementations:
+    - Echo Resolver: resolvers/echo.md
+    - AWSLambda Resolver: resolvers/aws-lambda.md
 - Implementations:
   - Amazon Web Services (AWS):
     - Overview: implementations/aws/overview.md
