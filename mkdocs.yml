@@ -14,4 +14,4 @@ pages:
   - Amazon Web Services (AWS): implementations/aws.md
   - DynamoDb: implementations/dynamodb.md
 
-theme: readthedocs
+theme: mkdocs
