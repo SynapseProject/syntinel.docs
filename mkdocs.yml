@@ -19,7 +19,7 @@ pages:
 - Implementations:
   - Amazon Web Services (AWS):
     - Overview: implementations/aws/overview.md
-    - Installation: implementations/aws/overview.md
+    - Installation: implementations/aws/installation.md
     - DynamoDb: implementations/aws/dynamodb.md
 
 theme: mkdocs
