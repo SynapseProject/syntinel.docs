@@ -4,6 +4,15 @@ Syntinel is a notification engine that communicates messages to a variety of end
 
 ![Architecture Components](resources/draw.io/Architecture-Components.png)
 
+## Description
+
+In simplistic terms...
+- Syntinel receives **Signal** messages from **Reporters**, indicating some event has occured.  
+- The message is formatted and sent to one or many **Channels** to report the event and (optionally) receive instructions on what actions to take on that event.
+- **Subscribers** select an action to take on the event, which is sent back to Syntinel for processing.
+- Syntinel then forwards the reply (called a **Cue**) to a **Resolver** which then can take actions on the event based on the **Subscriber** feedback.
+- Finally, **Status** messages are logged and optional sent back to the original **Channels** indicating the result of the Resolver.
+
 ## Glossary
 
 **Reporters** - Any script, program, service, etc...  that is responsible for sending messages into Syntinel.
