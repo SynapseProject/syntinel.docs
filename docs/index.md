@@ -7,6 +7,7 @@ Syntinel is a notification engine that communicates messages to a variety of end
 ## Description
 
 In simplistic terms...
+
 - Syntinel receives **Signal** messages from **Reporters**, indicating some event has occured.  
 - The message is formatted and sent to one or many **Channels** to report the event and (optionally) receive instructions on what actions to take on that event.
 - **Subscribers** select an action to take on the event, which is sent back to Syntinel for processing.
