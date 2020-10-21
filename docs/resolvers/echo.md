@@ -4,7 +4,7 @@ The Echo Resolver logs the variables sent in the Cue reply to the Signal message
 
 ## Resolver Input
 
-See [Resolver Input](../resolvers.md#resolver-input) section of the [Resolvers](../resolvers.md) page for class details.
+See [Resolver Input](./overview.md#resolver-input) section of the [Resolvers](./overview.md) page for class details.
 
 ## Resolver Config Section
 

@@ -4,9 +4,9 @@ The AWS Lambda Resolver forwards the ResolverRequest to an AWS Lambda Function.
 
 ## Resolver Input
 
-Syntinel calls the lambda function named in the resolver config section by passing the [ResolverRequest](../resolvers.md#resolverrequest) into the lambda function as a JSON string. 
+Syntinel calls the lambda function named in the resolver config section by passing the [ResolverRequest](./overview.md#resolverrequest) into the lambda function as a JSON string. 
 
-See [Resolver Input](../resolvers.md#resolver-input) section of the [Resolvers](../resolvers.md) page for class details.
+See [Resolver Input](./overview.md#resolver-input) section of the [Resolvers](./overview.md) page for class details.
 
 ## Resolver Config Section
 

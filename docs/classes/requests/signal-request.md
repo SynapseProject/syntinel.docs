@@ -221,12 +221,12 @@ Obviously, the logic for actually interacting with the ec2 instance would be in 
 
 Result In Teams :
 
-![](../resources/signals/signal-teams.png)
+![](../../resources/signals/signal-teams.png)
 
 Result In Slack : 
 
-![](../resources/signals/signal-slack-1.png)
-![](../resources/signals/signal-slack-2.png)
+![](../../resources/signals/signal-slack-1.png)
+![](../../resources/signals/signal-slack-2.png)
 
 #### **Sample Signal Using A Template**
 
@@ -319,11 +319,11 @@ Template Record:
 
 Result In Teams :
 
-![](../resources/signals/signal-template-teams.png)
+![](../../resources/signals/signal-template-teams.png)
 
 Result In Slack : 
 
-![](../resources/signals/signal-template-slack.png)
+![](../../resources/signals/signal-template-slack.png)
 
 #### **Simple Alert**
 
@@ -349,9 +349,9 @@ Sends a simple notification to the channels, displaying a main message and 2 "su
 
 Result In Teams :
 
-![](../resources/signals/simple-alert-teams.png)
+![](../../resources/signals/simple-alert-teams.png)
 
 Result In Slack : 
 
-![](../resources/signals/simple-alert-slack.png)
+![](../../resources/signals/simple-alert-slack.png)
 

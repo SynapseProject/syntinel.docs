@@ -8,8 +8,8 @@ An example would be the AWSLambda resolver.  It knows how to forward the action 
 
 |Name|Description
 |----|-----------
-|[Echo](./resolvers/echo.md)|Simply echos back the variables received in the Cue message.
-|[AWSLambda](./resolvers/aws-lambda.md)|Calls an AWS Lambda function to resolve the Cue.
+|[Echo](./echo.md)|Simply echos back the variables received in the Cue message.
+|[AWSLambda](./aws-lambda.md)|Calls an AWS Lambda function to resolve the Cue.
 |*AWSStepFunction*|(Not Yet Implemented) Calls an AWS Step function to resolve the Cue.
 |*AWSSystemManager*|(Not Yet Implemented) Executes a command on an EC2 instance using the AWS System Manager agent.
 |*Rest*|(Not Yet Implemented) Sends the ResolverRequest to a REST Api via a POST request.
@@ -88,7 +88,7 @@ Each resolver receives the same information about the original Signal messages a
 |cueId|String|The CueOption that was selected for this action.
 |variables|List of [MultiValueVariable](#multivaluevariable)|List of variables returned for this action.
 |isValid|Boolean|Yes|Flag to say if action was/is valid.
-|status|[StatusType](classes/status-request.md#statustype)|Yes|Tells the current status of the action.
+|status|[StatusType](../classes/requests/status-request.md#statustype)|Yes|Tells the current status of the action.
 |statusMessage|String|No|Message that describes the reason of the stauts.
 |time|DateTime|Yes|The time the action was taken.
 
