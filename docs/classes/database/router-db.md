@@ -10,17 +10,9 @@ Description
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "required": [ "id" ],
+    "required": [ "_id" ],
     "properties": {
-        "id": { "type": "string" },
-        "actionId": { "type": "string" },
-        "newStatus": { "type": "string" },
-        "closeSignal": { "type": "boolean" },
-        "isValidReply": { "type": "boolean" },
-        "sendToChannels": { "type": "boolean" },
-        "customMessage": { "type": "object"},
-        "message": { "type": "string"},
-        "data": { "type": "object" }
+        "_id": { "type": "string" }
     }
 }
 ````

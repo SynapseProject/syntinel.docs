@@ -1,6 +1,6 @@
 ## Channel Database Record
 
-The Channel Database Record represents a single channel that can be used by Syntinel that can receive Signal messages sent from Syntinel.
+The Channel Database Record represents a single channel that can be used by Syntinel to receive Signal messages sent from Syntinel.
 
 ### Class Diagram
 ![Channel Database Record](../../resources/draw.io/ClassDiagram-ChannelDbRecord.png)
@@ -32,7 +32,7 @@ The Channel Database Record represents a single channel that can be used by Synt
 |-----|----|--------|-----------
 |_id|String|Yes|The unique identifier for this channel.
 |name|String|No|The name of this channel (used for logging).
-|description|String|No|A brief description of this channel (unused).
+|description|String|No|A brief description of this channel (reference only).
 |type|[ChannelType](#channeltype)|Yes|The type of supported channel this represents.
 |target|String|Maybe|The destination for the slack message within the specified channel (if required by the channel type).
 |config|Json Object|Maybe|Channel-specific configuration (if required).
