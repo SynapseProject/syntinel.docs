@@ -3,8 +3,8 @@ pages:
 - Syntinel: index.md
 - Classes:
   - Requests:
-    - Signal Request: classes/request/signal-request.md
-    - Status Request: classes/request/status-request.md
+    - Signal Request: classes/requests/signal-request.md
+    - Status Request: classes/requests/status-request.md
   - Database Records:
     - Channel DB Record: classes/database/channel-db.md
     - Reporter DB Record: classes/database/reporter-db.md
