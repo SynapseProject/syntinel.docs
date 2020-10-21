@@ -1,11 +1,15 @@
 site_name: Syntinel
 pages:
 - Syntinel: index.md
-- Core Inputs:
-  - Signal: classes/signal-request.md
-  - Status: classes/status-request.md
-- Database Objects: 
-  - Classes: classes/database.md
+- Classes:
+  - Signal Request: classes/request/signal-request.md
+  - Status Request: classes/request/status-request.md
+  - Database Records:
+    - Channel DB Record: classes/database/channel-db.md
+    - Reporter DB Record: classes/database/reporter-db.md
+    - Router DB Record: classes/database/router-db.md
+    - Signal DB Record: classes/database/signal-db.md
+    - Template DB Record: classes/database/template-db.md
 - Resolvers:
   - Overview: resolvers.md
   - Echo Resolver: resolvers/echo.md
