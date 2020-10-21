@@ -4,9 +4,15 @@ pages:
 - Core Inputs:
   - Signal: classes/signal-request.md
   - Status: classes/status-request.md
+- Database Objects: 
+  - Classes: classes/database.md
+  - DynamoDb: aws/dynamodb.md
 - Resolvers:
   - Overview: resolvers.md
   - Echo Resolver: resolvers/echo.md
   - AWSLambda Resolver: resolvers/aws-lambda.md
+- Implementations:
+  - Amazon Web Services:
+    - Installation: aws/install.md
 
 theme: readthedocs
