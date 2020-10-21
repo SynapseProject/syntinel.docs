@@ -6,12 +6,12 @@ pages:
   - Status: classes/status-request.md
 - Database Objects: 
   - Classes: classes/database.md
-  - DynamoDb: databases/dynamodb.md
 - Resolvers:
   - Overview: resolvers.md
   - Echo Resolver: resolvers/echo.md
   - AWSLambda Resolver: resolvers/aws-lambda.md
 - Implementations:
   - Amazon Web Services (AWS): implementations/aws.md
+  - DynamoDb: implementations/dynamodb.md
 
 theme: readthedocs
