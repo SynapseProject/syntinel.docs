@@ -12,6 +12,7 @@ pages:
   - Echo Resolver: resolvers/echo.md
   - AWSLambda Resolver: resolvers/aws-lambda.md
 - Implementations:
+  - Test: aws/install.md
   - Amazon Web Services:
     - Installation: aws/install.md
 
