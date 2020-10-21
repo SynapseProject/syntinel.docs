@@ -2,8 +2,9 @@ site_name: Syntinel
 pages:
 - Syntinel: index.md
 - Classes:
-  - Signal Request: classes/request/signal-request.md
-  - Status Request: classes/request/status-request.md
+  - Requests:
+    - Signal Request: classes/request/signal-request.md
+    - Status Request: classes/request/status-request.md
   - Database Records:
     - Channel DB Record: classes/database/channel-db.md
     - Reporter DB Record: classes/database/reporter-db.md
@@ -15,7 +16,9 @@ pages:
   - Echo Resolver: resolvers/echo.md
   - AWSLambda Resolver: resolvers/aws-lambda.md
 - Implementations:
-  - Amazon Web Services (AWS): implementations/aws.md
-  - DynamoDb: implementations/dynamodb.md
+  - Amazon Web Services (AWS):
+    - Overview: implementations/aws/overview.md
+    - Installation: implementations/aws/overview.md
+    - DynamoDb: implementations/aws/dynamodb.md
 
 theme: mkdocs
