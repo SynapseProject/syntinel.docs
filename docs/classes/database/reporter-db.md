@@ -1,6 +1,6 @@
 ## Reporter Database Record
 
-Description
+The Reporter Database Record contains information on the client that is "reporting" an event (Signal) to Syntinel.  It contains information on how the Signal message is to be routed as well as information about the reporter itself.
 
 ### Class Diagram
 ![Reporter Database Record](../../resources/draw.io/ClassDiagram-ReporterDbRecord.png)
