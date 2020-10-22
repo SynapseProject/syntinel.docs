@@ -14,7 +14,7 @@ A Status message is sent by resolvers to update Syntinel with the status of the 
     "properties": {
         "id": { "type": "string" },
         "actionId": { "type": "string" },
-        "newStatus": { "type": "string" },
+        "newStatus": { "type": "string", "pattern": "^New|Sent Received|SentToResolver|Completed|Error|Invalid$" },
         "closeSignal": { "type": "boolean" },
         "isValidReply": { "type": "boolean" },
         "sendToChannels": { "type": "boolean" },
