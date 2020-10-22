@@ -82,7 +82,12 @@ Referenced Classes:
 
 #### **Sample Signal Database Record**
 
-Description
+The message below represents a resolver that monitors server uptime and asks subscribers if they would like to take action against the server.  Things of note : 
+
+- The "_trace" item "SignalReply" is the response sent back to the reporter.  The "Status" item is the status reported back from the resolver  (in this case, a simple "[echo](../../resolvers/echo.md)" of the variables sent in.)
+- The "actions" section shows a single action of "hibernate" was specified against the server.
+- The "signal" item is the original signal message sent into Sytinel.  If the original message was using router info and/or templates, this will show the "final" message after those were applied.
+
 
 ````json
 {
