@@ -1,6 +1,6 @@
 ## Template Database Record
 
-The Template Database Record stores all the various type of templates that can be used throughout Syntinel.  For more information on how Templates are used, see the [Templates]() page.
+The Template Database Record stores all the various type of templates that can be used throughout Syntinel.  For more information on how Templates are used, see the [Templates](#comingsoon) page.
 
 ### Class Diagram
 ![Template Database Record](../../resources/draw.io/ClassDiagram-TemplateDbRecord.png)

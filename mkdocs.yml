@@ -11,6 +11,14 @@ pages:
     - Router DB Record: classes/database/router-db.md
     - Signal DB Record: classes/database/signal-db.md
     - Template DB Record: classes/database/template-db.md
+  - Channels:
+    - Slack: core/channels/slack.md
+    - Microsoft Teams: core/channels/teams.md
+  - Actions:
+    - Button: core/actions/button.md
+    - Choice: core/actions/choice.md
+  - Templates: core/templates.md
+  - Router: core/router.md
 - Resolvers:
   - Overview: resolvers/overview.md
   - Echo Resolver: resolvers/echo.md
