@@ -67,7 +67,7 @@ Here, the desire is to have each reporter send to their own channel(s).   This c
 
 ```json
 {
-  "_id": "dev",
+  "_id": "test",
   "_type": "my-other-reporter-id",
   "channels": [
     "my-other-channel-slack",
@@ -83,4 +83,4 @@ Here, the desire is to have each reporter send to their own channel(s).   This c
 - **Signal - No Routing** : No routing information is provided, so message is routed to the defaultChannels in the Reporter record.
 - **Signal - Consolidation** : Here, all reporters (*sample-reporter* and *another-reporter*) wind up in the same environment specific channels.
 - **Signal - Segregation** : Because no routerType was passed in the signal message, the reporterId is used as the routerType.  
-- **Signal - Not Found** : The routerId "prod" was not found with a matching routerType of "environment, however there was a "prod" found with the reporterId used as the type.  Thus it is send to the reporter specific channels.
+- **Signal - Not Found** : The routerId "prod" was not found with a matching routerType of "environment", however there was a "prod" found with the reporterId used as the type.  Thus it is send to the reporter specific channels.
