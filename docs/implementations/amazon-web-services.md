@@ -1,6 +1,6 @@
 # Amazon Web Services
 
-The Amazon Web Services (AWS) implementation of Syntinel utilizes a combonation of API Gateway endpoints, Lambda functions (written in DotNet Core 3.1) and DynamoDB tables.
+The Amazon Web Services (AWS) implementation of Syntinel utilizes a combination of API Gateway endpoints, Lambda functions (written in DotNet Core 3.1) and DynamoDB tables.
 
 ## Technical Architecture
 
