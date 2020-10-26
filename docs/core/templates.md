@@ -166,7 +166,7 @@ Where the only information required is the "instance" and an optional "notify" f
 
 Channel templates allow you to define common items that apply to all channels (for example, the "actionUrl" for Teams channels) while exposing only the parts of the channel that change.
 
-This allows for quick updates in the event a configuration changes across all channels (we had to re-deploy syntinel in AWS and need to update the API Gateway for example).
+This allows for quick updates in the event a configuration changes across all channels (if we had to re-deploy syntinel in AWS and need to update the API Gateway for example).
 
 ### Example
 
