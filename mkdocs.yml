@@ -14,9 +14,7 @@ pages:
   - Channels:
     - Slack: core/channels/slack.md
     - Microsoft Teams: core/channels/teams.md
-  - Actions:
-    - Button: core/actions/button.md
-    - Choice: core/actions/choice.md
+  - Actions: core/actions.md
   - Templates: core/templates.md
   - Router: core/router.md
 - Resolvers:
