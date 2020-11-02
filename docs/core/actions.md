@@ -1,6 +1,6 @@
 # Syntinel Actions
 
-Each signal message sent to Syntinel can contain one or more "actions" that a subscriber can take in response to the event.  These usually appears as interactive elements within the channel message.  Not all action types are supported for every channel type.  Below is a table of all the actions and channels currently supported by Syntinel and whether the action is supported.
+Each signal message sent to Syntinel can contain one or more "actions" that a subscriber can take in response to the event.  These usually appears as interactive elements within the channel message.  Not all action types are supported for every channel type.  Below is a table of all the actions and channels currently supported by Syntinel and whether the action is supported. 
 
 ||[Button](#button)|[Choice](#choice)|
 |-|-----|-----|
