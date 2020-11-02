@@ -7,9 +7,7 @@ Each signal message sent to Syntinel can contain one or more "actions" that a su
 |Slack|Yes|Yes|
 |Teams|Yes|Yes|
 
-## Action Types
-
-### Button
+## Button
 
 Button action types allow the subscriber to select a single, clickable button and "submit" that reply back to Syntinel for processing.
 
@@ -25,14 +23,14 @@ Button action types allow the subscriber to select a single, clickable button an
 
 In the example action above, the value passed back when the button is selected is in the "defaultValue" field.   Below are examples of how the button action is displayed in each supported channel type.
 
-#### Slack
+### Slack
 ![slack-button](../resources/actions/slack-button.png)
 
-#### Teams
+### Teams
 ![slack-button](../resources/actions/teams-button.png)
 
 
-### Choice
+## Choice
 
 The Choice action type allows the subscriber to select from a list of options.  The selected option is then sent back to Syntinel for processing.
 
@@ -55,10 +53,10 @@ The Choice action type allows the subscriber to select from a list of options.  
 
 In the example action above, the value passed back when a choice is made is one of the values in the "values" field.   Below are examples of how the choice action is displayed in each supported channel type.
 
-#### Slack
+### Slack
 ![slack-button](../resources/actions/slack-choice.png)
 
-#### Teams
+### Teams
 ![slack-button](../resources/actions/teams-choice.png)
 
 ## Fields Passed To Resolver
