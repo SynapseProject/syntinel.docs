@@ -9,7 +9,7 @@ For more details, please visit the Teams documention links below:
 
 ## Setup Incoming Webhook in Teams Client
 
-Step 1 : Select the channel you wish to add the Syntinel alert to.  Choose the "More Options" menu item "..." and then select the "Connectors" menu item.
+Step 1 : Select the channel you wish to add the Syntinel alert to.  Choose the "More Options" menu item "..." and then select "Connectors" from the drop-down.
 ![Connectors](../../resources/channels/teams/teams-setup-001.png)
 
 Step 2 : With the "All" category selected, choose the "Configure" button on the "Incoming Webhook" connector.

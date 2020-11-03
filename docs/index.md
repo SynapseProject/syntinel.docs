@@ -20,11 +20,11 @@ In simplistic terms...
 
 **Signal** - The message sent from Reporters into Syntinel.
 
-**Channels** - The configuration item that specifes a single target for a Signal message.  Signals may send to more than one channel.
+**Channels** - The configuration item that specifes a single target for a Signal message.  Signals may be sent to more than one channel.
 
 **Subscribers** - Client applications (Slack, Teams, Email, etc..) that receive Signals from Syntinel and display them to end clients for review or request actions to be taken.
 
-**Cue** - A reply to a Signal, send from the Subscriber back into Syntinel.  This can contain information on which (if any) actions to take based on the Signal.
+**Cue** - A reply to a Signal, sent from the Subscriber back into Syntinel.  This can contain information on which (if any) actions to take based on the Signal.
 
 **Resolvers** - Appliations, programs or services that receive the Signal and Cue messages and take action based on those messages. (Ex: stop a service, restart a server, etc...)
 
@@ -42,6 +42,7 @@ In simplistic terms...
 | Syntinel.Aws | A serverless implementation of Syntinel that runs on the Amazon Web Services platform.  It makes use of the API Gateway, DyanmoDB and Lambda AWS services to implement the application. |
 | Syntinel.Tester | Used primarily for developer testing of the application. |
 
+Syntinel is an open source project.  The source code can be found on [GitHub](https://github.com/SynapseProject/syntinel.core.net).
 
 ## Message Flow
 

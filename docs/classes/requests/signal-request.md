@@ -95,12 +95,12 @@ A Signal message is sent by reporters into Syntinel to generate an alert to one 
 |Field|Type|Required|Description
 |-----|----|--------|-----------
 |reporterId|String|Yes|The unique Id registered with Syntinel for this reporter.  It helps determine message destination(s).
-|routerId|String|No|Id to use when searching custom routing table for alternative message destinations.
+|routerId|String|No|Id to use when searching the custom routing table for alternative message destinations.
 |routerType|String|Conditional|Required if RouterId provided.  The qualifier for what type of id was passed in.
 |name|String|No|The name of the signal message.  Usually displayed in the "header" of the message.
 |description|String|No|A description of the signal message.  Usually displayed in the "header" of the message.
 |*maxReplies*|Integer|No|(Not Yet Implemented) The maximum number of valid replies allowed for this signal message.
-|cues|Dictionary of [CueOption](#CueOption)|No|A list of possible replies to the signal message.  These are usually displayed in their own sections after the message "header".
+|cues|Dictionary of [CueOption](#cueoption)|No|A list of possible replies to the signal message.  These are usually displayed in their own sections after the message "header".
 |*defaultCue*|String|No|(Not Yet Implemented)The key value of the cue option to take by default.
 |*defaultCueTimeout*|Integer|No|(Not Yet Implemented)The amount of time (in seconds) to wait before executing the defaultCue.
 |includeId|Boolean|No|Flag to indicate whether the SignalId should be included in the display of the message.  *(Default Value = true)*
