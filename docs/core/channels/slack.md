@@ -33,6 +33,27 @@ Step 7 : Copy the Webhook URL.  This will be the "target" element for a slack [c
 Step 8 : Select "Interactivity & Shortcuts" from left-hand menu.  Turn "Interactivity" to "On" and then copy the [slack cue reply url](#getting-the-slack-cue-reply-url) into the Request URL field.
 ![Setup Interactivity](../../resources/channels/slack/slack-setup-008.png)
 
+## Syntinel Channel Definition
+
+Below is a sample Teams channel definition within Syntinel.  The Url you created for the Incoming Webhook should go into the "target" field.
+
+The [Slack Cue Reply Url](#getting-the-slack-cue-reply-url) must be added into the Slack application itself (Step #8 above).
+
+There is no "config" section needed for Slack channels.
+
+```json
+{
+    "_id": "my-slack-channel",
+    "type": "slack",
+    "name": "My Slack Channel",
+    "description": "Used for communication to My Team over Slack.",
+    "isActive": true,
+    "target": "https://hooks.slack.com/services/ABCDEFGHI/A00A0AA0AAA/xxxxxxxxxxxxxxxxxxxxxxxx",
+    "config": {
+    }
+}
+```
+
 
 ## Getting the Slack Cue Reply Url
 
