@@ -108,32 +108,32 @@ A Signal message is sent by reporters into Syntinel to generate an alert to one 
 #### **CueOption**
 |Field|Type|Required|Description
 |-----|----|--------|-----------
-|\<key\>|String|Yes|A unique identifier for this instance of acue option.  It is the key value of the dictionary object.
+|<key\>|String|Yes|A unique identifier for this instance of a cue option.  It is the key value of the dictionary object.
 |name|String|No|A name to identify the particular cue option.  This value is usually displayed in the title of the message section for this cue.
 |description|String|No|A description for this particular cue option.  This value is usually displayed in the title of the message section for this cue.
 |resolver|[Resolver](#resolver)|No|The resolver to be called when action is taken on this Cue.
 |*inputs*|List of [SignalVariable](#signalvariable)|No|(Not Yet Implemented)A list of items to display in the message which don't necessarily trigger an action, but provide additional input on the action taken.
 |actions|List of [SignalVariable](#signalvariable)|No|A list of possible actions that can be taken on a Cue.
 |*defaultAction*|String|No|(Not Yet Implemented)The default action to take when this cue is selected and no action has been specified.
-|template|String|No|The Template Id to be used for this Cue.  (TemplateType = CueOption)
+|template|String|No|The [Template](../../core/templates.md) Id to be used for this Cue.  (TemplateType = CueOption)
 |arguments|Dictionary of Objects|No|The arguments to be passed into the template for completing the Cue.
 
 #### **Resolver**
 |Field|Type|Required|Description
 |-----|----|--------|-----------
-|name|String|Yes|The name of the resolver to call.
+|name|String|Yes|The name of the [resolver](../../resolvers/overview.md) to call.
 |config|Object|No|Config parameters to be passed into the resolver.  This can be any valid JSON object, as long as it can be serialized.
-|notify|Boolean|No|Flag to send a status notification back to the original channels that received the Signal message. (**Default Value = false*)
+|notify|Boolean|No|Flag to indicate that status notifications should be sent back to the original channels that received the Signal message. (**Default Value = false*)
 
 #### **SignalVariable**
 |Field|Type|Required|Description
 |-----|----|--------|-----------
 |name|String|No|The name for the input or action that is to be displayed.
-|*id*|String|Yes|(Not Yet Implemented)A unique id for this action.  Will be used in conjunction with the "defaultAction" for this cue.
+|*id*|String|Yes|(Not Yet Implemented) A unique id for this action.  Will be used in conjunction with the "defaultAction" for this cue.
 |description|String|No|A description for the input or action that is to be displayed.
 |type|Choice of [VariableType](#variabletype)|Yes|The type of action or input object to display.
-|defaultValue|String|No|The default value for this action or input.
-|values|Dictionary of String|Conditional|Possible values for the action or input.  Depending on the "type" field, this may be a required value.
+|defaultValue|String|Maybe|The default value for this action or input.  Depending on the "type" field, this may be a required value.
+|values|Dictionary of String|Maybe|Possible values for the action or input.  Depending on the "type" field, this may be a required value.
 
 
 #### **VariableType**
@@ -153,7 +153,7 @@ Enumeration of Variable Types
 
 A sample ec2 utilization monitor that sends alerts when an instance has been up for more than 7 days, and allows the subscriber to take action against the ec2 instance directly from the Signal message.
 
-Obviously, the logic for actually interacting with the ec2 instance would be in the lambda function "my-lambda-function" resolver.
+The logic for actually interacting with the ec2 instance would be in the lambda function "my-lambda-function" resolver.
 
 ````json
 {
@@ -174,15 +174,6 @@ Obviously, the logic for actually interacting with the ec2 instance would be in 
           "region": "us-east-1"
         }
       },
-      "inputs": [
-        {
-          "name": "Enter Comment",
-          "id": "comment",
-          "description": "Say Something About This",
-          "type": "text",
-          "defaultValue": "Default Comment Value Here"
-        }
-      ],
       "actions": [
         {
           "name": "Perform Action",

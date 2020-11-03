@@ -1,6 +1,8 @@
 ## Router Database Record
 
-Syntinel uses the Router Database record to look up alternative channels (routing) for the message.  It uses the 2 fields from the Signal (routerId and routerType) and if a record is found matching that Id and Type, the channels specified here replace the defaultChannels in the reporter.
+Syntinel uses the Router Database record to look up alternative channels (routing) for the message.  It uses 2 fields from the Signal message (routerId and routerType).  If a record is found matching that Id and Type, the channels specified in the record will replace the defaultChannels in the reporter.
+
+For a more detailed description of how Syntinel routing works, please see the [Router](../../core/router.md) page.
 
 ### Class Diagram
 ![Router Database Record](../../resources/draw.io/ClassDiagram-RouterDbRecord.png)

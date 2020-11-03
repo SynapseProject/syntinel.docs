@@ -1,6 +1,6 @@
 ## Channel Database Record
 
-The Channel Database Record represents a single channel that can be used by Syntinel to receive Signal messages sent from Syntinel.
+The Channel Database Record represents a single endpoint that can be used by Syntinel to send Signal messages to subscribers.
 
 ### Class Diagram
 ![Channel Database Record](../../resources/draw.io/ClassDiagram-ChannelDbRecord.png)
@@ -37,7 +37,7 @@ The Channel Database Record represents a single channel that can be used by Synt
 |target|String|Maybe|The destination for the slack message within the specified channel (if required by the channel type).
 |config|Json Object|Maybe|Channel-specific configuration (if required).
 |isActive|Boolean|Yes|Indicates whether or not a channel is currently active.  
-|template|String|Maybe|The unique identifier for the "Channel" template to use.
+|template|String|Maybe|The unique identifier for the "Channel" template to use.  See [Templates](../../core/templates.md) for more details.
 |arguments|Dictionary|Maybe|The values for the template parameters (key, value) to use when calling the template.
 
 
@@ -62,7 +62,7 @@ The record below represents a fully defined Microsoft Teams endpoint that can re
     },
     "description": "The [syntinel] channel in the [MyOpsTeam] team.",
     "isActive": true,
-    "name": "CHANNEL_NAME - TEAM_NAME",
+    "name": "MyTeamsChannel",
     "target": "https://outlook.office.com/webhook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx@xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/IncomingWebhook/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "type": "teams"
 }
