@@ -44,8 +44,8 @@ The Channel Database Record represents a single endpoint that can be used by Syn
 #### **ChannelType**
 Enumeration of Supported Channel Types
 
-- **slack** : Send to the Slack client via a channel endpoint.
-- **teams** : Sent to the Microsoft Teams client via a channel endpoint.
+- [slack](../../core/channels/slack.md) : Send to the Slack client via a channel endpoint.
+- [teams](../../core/channels/teams.md) : Sent to the Microsoft Teams client via a channel endpoint.
 - **azure-bot-service** : *Not Yet Implemented*
 
 ### Examples

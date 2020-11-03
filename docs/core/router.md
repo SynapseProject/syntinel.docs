@@ -32,7 +32,7 @@ The router requires two values to search, an ID (routerId) and a TYPE (routerTyp
 
 ### Consolidation
 
-In this scenario, the desire is to have ALL messages, no matter who is reporting them, to wind up in the same channel(s).  Using the signal above, the router entry below would accomplish this scenario.
+In this scenario, the desire is to have ALL messages, no matter who is reporting them, wind up in the same channel(s).  Using the signal example above, this router entry below would accomplish this scenario.
 
 **Router Database Entry**
 ```json
@@ -77,6 +77,10 @@ Here, the desire is to have each reporter send to their own channel(s).   This c
 ```
 
 ### Routing Examples
+
+The diagram below shows example routing results based on the signals received, matching against the Database Entries provided. 
+
+The entries are color coded, meaning the Red Signal winds up in the Red channles because of the Red database entry.
 
 ![Channel Database Record](../resources/draw.io/Examples-Router.png)
 

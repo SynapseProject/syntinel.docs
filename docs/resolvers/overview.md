@@ -1,6 +1,6 @@
 # Resolvers
 
-Resolvers are classes that can are used to, well, resolve an action taken on a Signal message.  The clases themselves should not contain specific business logic, but rather encompass using a "technology" to solve the business problem.
+Resolvers are classes that can are used to resolve an action taken on a Signal message.  The clases themselves should not contain specific business logic, but rather encompass using a "technology" to solve the business problem.
 
 An example would be the AWSLambda resolver.  It knows how to forward the action inputs and other data associated with it to an AWS Lambda function.  The logic to resolve the business requirements would be in that specific lambda function that is called.
 
@@ -17,11 +17,18 @@ An example would be the AWSLambda resolver.  It knows how to forward the action 
 
 ## Resolver Input
 
-Each resolver receives the same information about the original Signal messages as well as the actions taken by the subscriber in regards to that message.  Unless it isn't supported by the resolver, the input will be in the JSON format (or a JSON Formated String).
+Each resolver receives the same information about the original Signal messages as well as the actions taken by the subscriber in regards to that message.  Unless it isn't supported by the resolver, the input will be in JSON format (or a JSON Formated String).
 
 ### Class Diagram
 
 ![Resolver Request](../resources/draw.io/ClassDiagram-ResolverMessage.png)
+
+Referenced Classes: 
+
+- [Signal Request](../classes/requests/signal-request.md#class-diagram)
+- [Status Reply](../classes/requests/status-request.md#class-diagram)
+
+
 
 ### Json Schema
 
@@ -85,8 +92,8 @@ Each resolver receives the same information about the original Signal messages a
 #### **ActionType**
 |Field|Type|Required|Description
 |-----|----|--------|-----------
-|cueId|String|The CueOption that was selected for this action.
-|variables|List of [MultiValueVariable](#multivaluevariable)|List of variables returned for this action.
+|cueId|String|Yes|The CueOption that was selected for this action.
+|variables|List of [MultiValueVariable](#multivaluevariable)|No|List of variables returned for this action.
 |isValid|Boolean|Yes|Flag to say if action was/is valid.
 |status|[StatusType](../classes/requests/status-request.md#statustype)|Yes|Tells the current status of the action.
 |statusMessage|String|No|Message that describes the reason of the stauts.

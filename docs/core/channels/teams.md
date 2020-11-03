@@ -9,19 +9,19 @@ For more details, please visit the Teams documention links below:
 
 ## Setup Incoming Webhook in Teams Client
 
-Step 1 : Select the channel you wish to add the Syntinel alert to.  Choose the "More Options" menu item "..." and then select "Connectors" from the drop-down.
+**Step 1** : Select the channel you wish to add the Syntinel alert to.  Choose the "More Options" menu item "..." and then select "Connectors" from the drop-down.
 ![Connectors](../../resources/channels/teams/teams-setup-001.png)
 
-Step 2 : With the "All" category selected, choose the "Configure" button on the "Incoming Webhook" connector.
+**Step 2** : With the "All" category selected, choose the "Configure" button on the "Incoming Webhook" connector.
 ![Configure](../../resources/channels/teams/teams-setup-002.png)
 
-Step 3 : Name the webhook and select the "Create" button.
+**Step 3** : Name the webhook and select the "Create" button.
 ![Create Webhook](../../resources/channels/teams/teams-setup-003.png)
 
-Step 4 : Copy the URL created, as this will be needed for the Syntinel channel configuration, and select "Done".
+**Step 4** : Copy the URL created, as this will be needed for the Syntinel channel configuration, and select "Done".
 ![Copy URL](../../resources/channels/teams/teams-setup-004.png)
 
-Step 5 : If you need to get the webhook URL at a later date, or need to remove the webhook, select "Configured" under the Manage section, find the Incoming Webhook connector, expand the "configured" dropdown and then select the "Manage" button.
+**Step 5** : If you need to get the webhook URL at a later date, or need to remove the webhook, select "Configured" under the Manage section, find the Incoming Webhook connector, expand the "configured" dropdown and then select the "Manage" button.
 ![Manage Webhook](../../resources/channels/teams/teams-setup-005.png)
 
 

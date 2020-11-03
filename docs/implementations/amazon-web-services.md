@@ -79,7 +79,7 @@ Below is a list of the minimum required permissions needed to install Syntinel :
 
 ### Running Templates Separately
 
-If you are unable (or unwilling) to execute the single template to deploy all parts of the Syntinel application (due to BoundryPolicies, or the permissions are spread across multiple roles) you can run each template in the "stacks" directory individually in the following order (with the approprite permissions for each): 
+If you are unable (or unwilling) to execute the single template to deploy all parts of the Syntinel application (due to BoundryPolicies, or the permissions being spread across multiple roles) you can run each template in the "stacks" directory individually in the following order (with the approprite permissions for each): 
 
 - cft-syntinel-init
 - cft-syntinel-iam
@@ -104,7 +104,7 @@ DynamoDb is a No-SQL database offering from Amazon Web Services.  Syntinel creat
 
 - [Overview](../classes/database/channel-db.md)
 - [Json Schema](../classes/database/channel-db.md#json-schmea)
-- [Channel Types](#comingsoon)
+- [Channel Types](../classes/database/channel-db.md#json-schmea#channeltype)
 - [Examples](../classes/database/channel-db.md#examples)
 
 ### Reporters Table

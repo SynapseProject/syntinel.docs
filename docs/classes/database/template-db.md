@@ -34,9 +34,9 @@ The Template Database Record stores all the various type of templates that can b
 #### **Status**
 |Field|Type|Required|Description
 |-----|----|--------|-----------
-|_id|String|Yes|The unique identifier (per type) for the template to ber used.
-|_type|[TemplateType](../../core/templates.md#templatetypes)|Yes|The type of template this record represents.
-|template|Json Object|Yes|The template itself.  See [Templates](../../core/templates.md) for description of each type and the proper Json format.
+|_id|String|Yes|The unique identifier (per type) for the template to be used.
+|_type|[TemplateType](../../core/templates.md#template-types)|Yes|The type of template this record represents.
+|template|Json Object|Yes|The template itself.  See the [Templates](../../core/templates.md) page for a description of each type and the proper Json format.
 |parameters|List of [TemplateVariableType](#templatevariabletype)|No|List of parameters the can replace values within the template itself.
 
 #### **TemplateVariableType**

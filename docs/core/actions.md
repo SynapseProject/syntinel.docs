@@ -71,7 +71,7 @@ Below is an example of the "actions" portion of the message sent to resolvers.  
                     {
                         "name": "action",
                         "values": [
-                            "ignore"
+                            "terminate"
                         ]
                     }
                 ],
