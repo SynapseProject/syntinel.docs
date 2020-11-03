@@ -36,12 +36,19 @@ Step 8 : Select "Interactivity & Shortcuts" from left-hand menu.  Turn "Interact
 
 ## Getting the Slack Cue Reply Url
 
-The URL used by a slack application to reply to Syntinel messages must be configured within the app itself.   This URL can be found a few different ways.
+The URL used by a slack application to reply to Syntinel messages must be configured within the app itself.   Below are the different ways to find that Url value.
 
 ### Api Gateway Console
 
-Description Here
+From the AWS Console, the url can be found in the API Gateway stages page for the Syntinel application.
 
-### Cloud Formation Template Outputs
+- Log onto the AWS Console.
+- Select API Gateway from the Services dropdown.
+- Select the "syntinel" api.
+- Select "Stages" from the left-hand menu, then expand the "syntinel" stage and selct the POST method for /cue/slack.
+- Copy the "Invoke URL" field in the main menu.
 
-**Coming Soon**
+**Note:** The names of the api and stage might be different if they were customized when deployed.
+
+![Setup Interactivity](../../resources/channels/slack/slack-apigateway-url.png)
+
