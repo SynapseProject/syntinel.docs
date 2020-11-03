@@ -104,7 +104,7 @@ DynamoDb is a No-SQL database offering from Amazon Web Services.  Syntinel creat
 
 - [Overview](../classes/database/channel-db.md)
 - [Json Schema](../classes/database/channel-db.md#json-schmea)
-- [Channel Types](../classes/database/channel-db.md#json-schmea#channeltype)
+- [Channel Types](../classes/database/channel-db.md#channeltype)
 - [Examples](../classes/database/channel-db.md#examples)
 
 ### Reporters Table
