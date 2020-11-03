@@ -58,7 +58,7 @@ Referenced Classes:
 |-----|----|--------|-----------
 |_id|String|Yes|The unique identifier generated for the original signal message sent from the reporter.
 |_isActive|Boolean|Yes|Inidicates whether or not a signal message can still have actions performed against it.
-|_status|choice of [Status](../requests/status-request.md#statustype)|Yes|The current status of the entire signal message.
+|_status|choice of [StatusType](../requests/status-request.md#statustype)|Yes|The current status of the entire signal message.
 |_time|Datetime|Yes|The time the message was originally received.
 |signal|[Signal](../requests/signal-request.md#signal)|Yes|The original signal message sent from the reporter.
 |actions|Dictionary of [ActionType](#actiontype)|No|Actions that have been taken against the signal message by one or more subscribers.
@@ -68,7 +68,7 @@ Referenced Classes:
 |Field|Type|Required|Description
 |-----|----|--------|-----------
 |cueId|String|Yes|The unique identifier generated for the action received from the subscriber.
-|variables|List of [MultiValueVariable](#multivaluevariable)|The variables received from the Cue message (action specified).
+|variables|List of [MultiValueVariable](#multivaluevariable)|Maybe|The variables received from the Cue message (action specified).
 
 
 #### **MultiValueVariable**

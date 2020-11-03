@@ -1,6 +1,6 @@
 ## Template Database Record
 
-The Template Database Record stores all the various type of templates that can be used throughout Syntinel.  For more information on how Templates are used, see the [Templates](#comingsoon) page.
+The Template Database Record stores all the various type of templates that can be used throughout Syntinel.  For more information on how Templates are used, see the [Templates](../../core/templates.md) page.
 
 ### Class Diagram
 ![Template Database Record](../../resources/draw.io/ClassDiagram-TemplateDbRecord.png)
@@ -35,9 +35,9 @@ The Template Database Record stores all the various type of templates that can b
 |Field|Type|Required|Description
 |-----|----|--------|-----------
 |_id|String|Yes|The unique identifier (per type) for the template to ber used.
-|_type|[TemplateType](#templatetype)|Yes|The type of template this record represents.
-|template|Json Object|Yes|The template itself.  See [Templates]() for description of each type and the proper Json format.
-|parameters|List of [TemplateVariableType]|No|List of parameters the can replace values within the template itself.
+|_type|[TemplateType](../../core/templates.md#templatetypes)|Yes|The type of template this record represents.
+|template|Json Object|Yes|The template itself.  See [Templates](../../core/templates.md) for description of each type and the proper Json format.
+|parameters|List of [TemplateVariableType](#templatevariabletype)|No|List of parameters the can replace values within the template itself.
 
 #### **TemplateVariableType**
 |Field|Type|Required|Description
