@@ -15,9 +15,49 @@ An example would be the AWSLambda resolver.  It knows how to forward the action 
 |*Rest*|(Not Yet Implemented) Sends the ResolverRequest to a REST Api via a POST request.
 
 
-## Resolver Input
+## Resolver Request
 
 Each resolver receives the same information about the original Signal messages as well as the actions taken by the subscriber in regards to that message.  Unless it isn't supported by the resolver, the input will be in JSON format (or a JSON Formated String).
+
+### Getting Important Information
+
+Getting the data your resolver needs out of the ResolverRequest object can be a bit tricky.  The majority of the information you will need is in the Signal and Actions elements, referenced by the ActionId and CueId values passed in.   Below are code examples of how to get a few bits on information your resolver might want.
+
+#### C#
+```csharp
+public Status ProcessRequest(ResolverRequest request)
+{
+  Status status = new Status();
+
+  // Any custom config passed in with the resolver
+  Dictionary<string, object> config = request.Signal.Cues[request.CueId].Resolver.Config;
+
+  // The variables specified by this specific request.
+  List<MultiValueVariable> variables = request.Actions[request.ActionId].Variables;
+
+  // ... Your Code Here...
+
+  return status;
+}
+```
+#### Python
+```python
+
+def lambda_handler(event, context):
+
+  # Any custom config passed in with the resolver
+  config = event['signal']['cues'][event['cueId']]['resolver']['config']
+
+  #The variables specified by this specific request.
+  variables = event['actions'][event['actionId']]['variables']
+
+  # ... Your Code Here ...
+
+  return {
+    'statusCode': 200
+}
+
+```
 
 ### Class Diagram
 
