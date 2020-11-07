@@ -21,7 +21,7 @@ Each resolver receives the same information about the original Signal messages a
 
 ### Getting Important Information
 
-Getting the data your resolver needs out of the ResolverRequest object can be a bit tricky.  The majority of the information you will need is in the Signal and Actions elements, referenced by the ActionId and CueId values passed in.   Below are code examples of how to get a few bits on information your resolver might want.
+Getting the data your resolver needs out of the ResolverRequest object can be a bit tricky.  The majority of the information you will need is in the Signal and Actions elements, referenced by the ActionId and CueId values indicated.   Below are code examples of how to get a few bits on information your resolver might want.
 
 #### C\#
 ```csharp
