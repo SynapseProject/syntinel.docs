@@ -62,7 +62,7 @@ A Signal message is sent by reporters into Syntinel to generate an alert to one 
                         "type": "array",
                         "items": {
                             "type": "object",
-                            "required": ["id", "type"],
+                            "required": ["type"],
                             "properties": {
                                 "name": { "type": "string" },
                                 "id": { "type": "string" },
