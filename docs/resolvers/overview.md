@@ -110,8 +110,12 @@ Referenced Classes:
         }
       }
     },
-    "trace": {
-      "type": "object"
+    "trace": { "type": "array",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string"},
+        "object": { "type": "object" }
+      }
     }
   }
 }
@@ -127,7 +131,7 @@ Referenced Classes:
 |cueId|String|Yes|The name of the CueOption in the Signal message that was selected by the subscriber on which the action was taken.
 |signal|Signal|Yes|The original signal message sent to the subscribers.
 |actions|Dictionary of [ActionType](#actiontype)|Yes|A dictionary of all actions taken against this signal (including the current action).
-|trace|Dictionary of Object (JSON)|No|A log of events that have occured for this signal message.
+|_trace|List of [TraceObject](#traceobject)|No|This is the "log" for all actions, updates, results associated with signal message.
 
 #### **ActionType**
 |Field|Type|Required|Description
@@ -145,6 +149,12 @@ Referenced Classes:
 |-----|----|--------|-----------
 |name|String|Yes|The variable name.
 |values|List of String|No|The value or values selected for the variable.
+
+#### **TraceObject**
+|Field|Type|Required|Description
+|-----|----|--------|-----------
+|type|String|Yes|The object's type.
+|object|JSON Object|No|The Json Serialized version of the object. 
 
 ### Examples
 
@@ -228,26 +238,29 @@ Referenced Classes:
             "time": "2020-10-07T20:02:09.0104309Z"
         }
     },
-    "trace": {
-        "0X7ZKJZQ9_SignalReply": {
-            "id": "0X7ZKIFE4",
-            "time": "2020-10-07T20:00:10.609855Z",
-            "results": [
-                {
-                    "channelType": "teams",
-                    "code": "Success",
-                    "message": "Success",
-                    "channelId": "_defaultTeams"
-                },
-                {
-                    "channelType": "slack",
-                    "code": "Success",
-                    "message": "Success",
-                    "channelId": "_default"
-                }
-            ],
-            "statusCode": "Success"
+    "trace": [
+        {
+            "type": "SignalReply",
+            "object": {
+                "id": "0X7ZKIFE4",
+                "time": "2020-10-07T20:00:10.609855Z",
+                "results": [
+                    {
+                        "channelType": "teams",
+                        "code": "Success",
+                        "message": "Success",
+                        "channelId": "_defaultTeams"
+                    },
+                    {
+                        "channelType": "slack",
+                        "code": "Success",
+                        "message": "Success",
+                        "channelId": "_default"
+                    }
+                ],
+                "statusCode": "Success"
+            }
         }
-    }
+    ]
 }
 ````

@@ -20,16 +20,22 @@ Referenced Classes:
         "_isActive": { "type": "boolean" },
         "_status": { "type": "string", "pattern": "^New|Sent Received|SentToResolver|Completed|Error|Invalid$" },
         "_time": { "type": "string", "format": "date" },
-        "signal": { "type": "object"                   
-             ** Insert Signal Request Json Schema Here **     
+        "signal": { "type": "object"
+            *** Insert Signal Schema Here ***
         },
-        "actions": { "type": "string" },
-        "_trace": { "type": "object",
+        "trace": { "type": "array",
+          "required": ["type"],
+          "properties": {
+           	"type": { "type": "string"},
+            "object": { "type": "object" }
+          }
+        },
+        "actions": { "type": "object",
           "additionalProperties": {
              "type": "object",
              "properties": {
                "cueId": {"type": "string" },
-               "variables": {"type": "object",
+               "variables": {"type": "array",
                  "required": [ "name", "values" ],
                  "properties": {
                    "name": { "type": "string" },
@@ -49,6 +55,7 @@ Referenced Classes:
     }
 }
 
+
 ````
 
 ### Field Descriptions
@@ -62,7 +69,7 @@ Referenced Classes:
 |_time|Datetime|Yes|The time the message was originally received.
 |signal|[Signal](../requests/signal-request.md#signal)|Yes|The original signal message sent from the reporter.
 |actions|Dictionary of [ActionType](#actiontype)|No|Actions that have been taken against the signal message by one or more subscribers.
-|_trace|Dictionary of Json Object|No|This is the "log" for all actions, updates, results associated with signal message.
+|_trace|List of [TraceObject](#traceobject)|No|This is the "log" for all actions, updates, results associated with signal message.
 
 #### **ActionType**
 |Field|Type|Required|Description
@@ -76,6 +83,12 @@ Referenced Classes:
 |-----|----|--------|-----------
 |name|String|Yes|The variable name
 |values|List of String|No|The value(s) associated with the variable. 
+
+#### **TraceObject**
+|Field|Type|Required|Description
+|-----|----|--------|-----------
+|type|String|Yes|The object's type.
+|object|JSON Object|No|The Json Serialized version of the object. 
 
 
 ### Examples
@@ -95,41 +108,47 @@ The message below represents a resolver that monitors server uptime and asks sub
   "_isActive": true,
   "_status": "Completed",
   "_time": "2020-10-07T22:28:15.8693223Z",
-  "_trace": {
-    "0X86F5LKV_SignalReply": {
-      "id": "0X86F3V1P",
-      "results": [
-        {
-          "channelId": "DevSlackChannel",
-          "channelType": "teams",
-          "code": "Success",
-          "message": "Success"
-        },
-        {
-          "channelId": "DevTeamsChannel",
-          "channelType": "slack",
-          "code": "Success",
-          "message": "Success"
-        }
-      ],
-      "statusCode": "Success",
-      "time": "2020-10-07T22:28:08.4267512Z"
+  "_trace": [
+    {
+      "type": "SignalReply",
+      "object": {
+          "id": "0X86F3V1P",
+          "results": [
+            {
+              "channelId": "DevSlackChannel",
+              "channelType": "teams",
+              "code": "Success",
+              "message": "Success"
+            },
+            {
+              "channelId": "DevTeamsChannel",
+              "channelType": "slack",
+              "code": "Success",
+              "message": "Success"
+            }
+          ],
+          "statusCode": "Success",
+          "time": "2020-10-07T22:28:08.4267512Z"
+      }
     },
-    "0X86GPKOM_Status": {
-      "actionId": "0X86G2NAS",
-      "closeSignal": false,
-      "data": {
-        "action": [
-          "hibernate"
-        ]
-      },
-      "id": "0X86F3V1P",
-      "isValidReply": true,
-      "message": "action : hibernate",
-      "newStatus": "Completed",
-      "sendToChannels": true
+    {
+      "type": "Status",
+      "object": {
+          "actionId": "0X86G2NAS",
+          "closeSignal": false,
+          "data": {
+            "action": [
+              "hibernate"
+            ]
+          },
+          "id": "0X86F3V1P",
+          "isValidReply": true,
+          "message": "action : hibernate",
+          "newStatus": "Completed",
+          "sendToChannels": true
+      }
     }
-  },
+  ],
   "actions": {
     "0X86G2NAS": {
       "cueId": "ec2",
