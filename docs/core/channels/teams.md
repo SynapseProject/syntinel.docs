@@ -47,6 +47,23 @@ Below is a sample Teams channel definition within Syntinel.  The Url you created
 
 The URL used by Microsoft Teams to reply to Syntinel messages is configured in the Syntinel Channel database and is part of the message sent to the subscriber.   Below are the different ways to find that Url value.
 
+### CloudFormation Template Outputs
+
+From the AWS Console, the URL can be found in the Outputs tab of the ApiGateway CloudFormation template.
+
+- Log onto AWS Console.
+- Select CloudFormation from the Services dropdown.
+- Select the ApiGateway stack name (you may have to select "View Nested" if built from a single template.)
+- Ensure the Api Gateway stack is selected under the stacks column.
+- Select the "Outputs" tab.
+- Copy the value for TeamsCueUrl
+
+**Note:** The name of the ApiGateway stack will be different if you gave it a custom name or deployed from a single CloudFormation template.
+
+![Select Template](../../resources/channels/apigateway-url-001.png)
+
+![Get Url](../../resources/channels/apigateway-url-002.png)
+
 ### Api Gateway Console
 
 From the AWS Console, the url can be found in the API Gateway stages page for the Syntinel application.

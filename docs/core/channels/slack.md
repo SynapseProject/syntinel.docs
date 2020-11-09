@@ -59,6 +59,23 @@ There is no "config" section needed for Slack channels.
 
 The URL used by a Slack application to reply to Syntinel messages must be configured within the app itself.   Below are the different ways to find that Url value.
 
+### CloudFormation Template Outputs
+
+From the AWS Console, the URL can be found in the Outputs tab of the ApiGateway CloudFormation template.
+
+- Log onto AWS Console.
+- Select CloudFormation from the Services dropdown.
+- Select the ApiGateway stack name (you may have to select "View Nested" if built from a single template.)
+- Ensure the Api Gateway stack is selected under the stacks column.
+- Select the "Outputs" tab.
+- Copy the value for SlackCueUrl
+
+**Note:** The name of the ApiGateway stack will be different if you gave it a custom name or deployed from a single CloudFormation template.
+
+![Select Template](../../resources/channels/apigateway-url-001.png)
+
+![Get Url](../../resources/channels/apigateway-url-002.png)
+
 ### Api Gateway Console
 
 From the AWS Console, the url can be found in the API Gateway stages page for the Syntinel application.
