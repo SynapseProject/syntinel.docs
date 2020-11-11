@@ -241,7 +241,7 @@ In the signal message below, the only piece of information that would change bet
 
 The signal message can be simplified to the message below when it calls an existing [CueOption](../classes/requests/signal-request.md#cueoption) template stored in Syntinel.
 
-**Signal Message (Using a Template)**
+**Signal Message (Using a CueOption Template)**
 ```json
 {
   "name": "Utilization",
@@ -293,7 +293,7 @@ In the channel definition below, the actionUrl would have to be included in ever
 
 Using a channel template instead allows you to only provide the information specific to this channel (mostly just the target).
 
-**Channel Database Record (With Template)**
+**Channel Database Record (With Channel Template)**
 
 ```json
 {
