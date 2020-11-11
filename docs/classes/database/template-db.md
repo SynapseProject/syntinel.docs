@@ -13,7 +13,7 @@ The Template Database Record stores all the various type of templates that can b
     "required": [ "_id", "_type" ],
     "properties": {
       "_id": { "type": "string" },
-      "_type": { "type": "string", "pattern": "^CueOption|Channel$" },
+      "_type": { "type": "string" },
       "template": { "type": "object" },
       "parameters" : { "type": "object",
         "additionalProperties": { "type": "array",
@@ -35,7 +35,7 @@ The Template Database Record stores all the various type of templates that can b
 |Field|Type|Required|Description
 |-----|----|--------|-----------
 |_id|String|Yes|The unique identifier (per type) for the template to be used.
-|_type|[TemplateType](../../core/templates.md#template-types)|Yes|The type of template this record represents.
+|_type|String|Yes|The type of template this record represents.
 |template|Json Object|Yes|The template itself.  See the [Templates](../../core/templates.md) page for a description of each type and the proper Json format.
 |parameters|List of [TemplateVariableType](#templatevariabletype)|No|List of parameters the can replace values within the template itself.
 
@@ -46,6 +46,93 @@ The Template Database Record stores all the various type of templates that can b
 |replace|String|No|The sub-string at the J-Path location to replace (instead of replacing the entire value).
 
 ### Examples
+
+#### **Sample Signal Template Database Record**
+
+A Signal template that can be used to query what actions to take on an Amazon EC2 instance.  The only fields that would change between alerts would be the Amazon Instnace Id and an optional override of the "notify" flag if you didn't want the status reported back to the original channels.
+
+````json
+{
+  "_id": "ec2-utilization",
+  "_type": "Signal",
+  "parameters": {
+    "instance": [
+      {
+        "path": "cues.ec2.description",
+        "replace": "INSTANCE_ID"
+      },
+      {
+        "path": "cues.ec2.resolver.config.instances[0]"
+      }
+    ],
+    "notify": [
+      {
+        "path": "cues.ec2.resolver.notify"
+      }
+    ]
+  },
+  "template": {
+    "name": "Utilization",
+    "description": "EC2 Utilization Montior",
+    "includeId": true,
+    "maxReplies": 1,
+    "cues": {
+      "ec2": {
+        "actions": [
+          {
+            "defaultValue": "stop",
+            "description": "Choose action to take against EC2 instances.",
+            "id": "action",
+            "name": "Perform Action",
+            "type": "choice",
+            "values": {
+              "hibernate": "Stop and Hibernate Instance",
+              "reboot": "Reboot Instance",
+              "stop": "Stop Instance",
+              "terminate": "Terminate Instance"
+            }
+          },
+          {
+            "defaultValue": "ignore",
+            "description": "Ignore this alert.",
+            "name": "Ignore Alert",
+            "type": "button"
+          },
+          {
+            "defaultValue": "disable",
+            "description": "Disable this alert.",
+            "name": "Disable Alert",
+            "type": "button"
+          }
+        ],
+        "defaultAction": "Perform Action",
+        "description": "Server [INSTANCE_ID] has been running for 7 days.  Would you like to take action against it?",
+        "inputs": [
+          {
+            "defaultValue": "Default Comment Value Here",
+            "description": "Choose action to take against EC2 instances.",
+            "id": "comment",
+            "name": "Enter Comment",
+            "type": "text"
+          }
+        ],
+        "name": "EC2 Usage",
+        "resolver": {
+          "config": {
+            "instances": [
+              "i-888888888888"
+            ]
+          },
+          "name": "Echo",
+          "notify": true
+        }
+      }
+    },
+    "defaultCue": "ec2-template",
+    "defaultCueTimeout": 4320
+  }
+}
+````
 
 #### **Sample CueOption Template Database Record**
 
@@ -81,7 +168,7 @@ A Microsoft Teams Channel template that contains the "reply to" url in the confi
 ````json
 {
   "_id": "teams",
-  "_type": "Channel",
+  "_type": "ChannelDbType",
   "parameters": {
     "channelName": [
       {
