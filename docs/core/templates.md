@@ -6,11 +6,177 @@ For example, if you have a reporter than sends the same signal message for every
 
 ## Template Types
 
-Currently, there are 2 types of templates supported by Syntinel :
+Currently, there are 3 types of templates supported by Syntinel :
 
-- [CueOption](../classes/requests/signal-request.md#cueoption) (The "actionable" part of a signal message.)
-- [Channel](../classes/database/channel-db.md)
+- [Signal](../classes/requests/signal-request.md) - The entire Signal message except for [required fields](#signal-templates).
+- [CueOption](../classes/requests/signal-request.md#cueoption) - The "actionable" part of a signal message.
+- [Channel](../classes/database/channel-db.md) - 
 
+## Signal Templates
+
+[Signal](../classes/requests/signal-request.md) templates let you define the entire signal message as a template, exposing only the relevant variables that need replacing.
+
+The following [Signal fields](../classes/requests/signal-request.md#field-descriptions) are still required to be passed in the Signal message itself.
+
+- reporterId
+- routerId (if needed)
+- routerType (if needed)
+
+### Example
+In the signal message below, the only piece of information that would change between each event is the ec2 instance id.
+
+**Signal Message (Without Using A Template)**
+```json
+{
+  "name": "Utilization",
+  "description": "EC2 Utilization Montior",
+  "maxReplies": 1,
+  "reporterId": "_default",
+  "cues": {
+    "ec2": {
+      "name": "EC2 Usage",
+      "description": "Server [i-888888888888] has been running for 7 days.  Would you like to take action against it?",
+      "resolver": {
+        "name": "AWSLambda",
+        "notify": true,
+        "config": {
+          "name": "my-lambda-function",
+          "instances": [
+              "i-888888888888"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "name": "Perform Action",
+          "id": "action",
+          "description": "Choose action to take against EC2 instances.",
+          "type": "choice",
+          "values": {
+            "stop": "Stop Instance",
+            "terminate": "Terminate Instance",
+            "reboot": "Reboot Instance",
+            "hibernate": "Stop and Hibernate Instance"
+          },
+          "defaultValue": "stop"
+        },
+        {
+          "name": "Ignore Alert",
+          "description": "Ignore this alert.",
+          "type": "button",
+          "defaultValue": "ignore"
+        },
+        {
+          "name": "Disable Alert",
+          "description": "Disable this alert.",
+          "type": "button",
+          "defaultValue": "disable"
+        }
+      ],
+      "defaultAction": "Perform Action"
+    }
+  }
+}
+```
+
+The signal message can be simplified to the message below when it calls an existing [Signal](../classes/requests/signal-request.md) template stored in Syntinel.
+
+**Signal Message (Using a Signal Template)**
+```json
+{
+  "reporterId": "_default",
+  "template": "ec2-utilization",
+  "arguments": {
+    "instance": "i-8675309JENNY",
+    "notify": false
+  }
+```
+
+Where the only information required is the "instance" and an optional "notify" flag if you want to overide the default notification value of "true".
+
+**Signal Tempate Database Record**
+```json
+{
+  "_id": "ec2-utilization",
+  "_type": "Signal",
+  "parameters": {
+    "instance": [
+      {
+        "path": "cues.ec2.description",
+        "replace": "INSTANCE_ID"
+      },
+      {
+        "path": "cues.ec2.resolver.config.instances[0]"
+      }
+    ],
+    "notify": [
+      {
+        "path": "cues.ec2.resolver.notify"
+      }
+    ]
+  },
+  "template": {
+    "name": "Utilization",
+    "description": "EC2 Utilization Montior",
+    "includeId": true,
+    "maxReplies": 1,
+    "cues": {
+      "ec2": {
+        "actions": [
+          {
+            "defaultValue": "stop",
+            "description": "Choose action to take against EC2 instances.",
+            "id": "action",
+            "name": "Perform Action",
+            "type": "choice",
+            "values": {
+              "hibernate": "Stop and Hibernate Instance",
+              "reboot": "Reboot Instance",
+              "stop": "Stop Instance",
+              "terminate": "Terminate Instance"
+            }
+          },
+          {
+            "defaultValue": "ignore",
+            "description": "Ignore this alert.",
+            "name": "Ignore Alert",
+            "type": "button"
+          },
+          {
+            "defaultValue": "disable",
+            "description": "Disable this alert.",
+            "name": "Disable Alert",
+            "type": "button"
+          }
+        ],
+        "defaultAction": "Perform Action",
+        "description": "Server [INSTANCE_ID] has been running for 7 days.  Would you like to take action against it?",
+        "inputs": [
+          {
+            "defaultValue": "Default Comment Value Here",
+            "description": "Choose action to take against EC2 instances.",
+            "id": "comment",
+            "name": "Enter Comment",
+            "type": "text"
+          }
+        ],
+        "name": "EC2 Usage",
+        "resolver": {
+          "config": {
+            "instances": [
+              "i-888888888888"
+            ]
+          },
+          "name": "Echo",
+          "notify": true
+        }
+      }
+    },
+    "defaultCue": "ec2-template",
+    "defaultCueTimeout": 4320
+  }
+}
+```
 
 ## CueOption Templates
 
@@ -96,71 +262,6 @@ The signal message can be simplified to the message below when it calls an exist
 
 Where the only information required is the "instance" and an optional "notify" flag if you want to overide the default notification value of "true".
 
-**CueOption Tempate Database Record**
-```json
-{
-  "_id": "ec2-utilization-template",
-  "_type": "CueOption",
-  "parameters": {
-    "instance": [
-      {
-        "path": "description",
-        "replace": "INSTANCE_ID"
-      },
-      {
-        "path": "resolver.config.instances[0]"
-      }
-    ],
-    "notify": [
-      {
-        "path": "resolver.notify"
-      }
-    ]
-  },
-  "template": {
-    "name": "EC2 Usage",
-    "description": "Server [INSTANCE_ID] has been running for 7 days.  Would you like to take action against it?",
-    "resolver": {
-    "name": "AWSLambda",
-    "notify": true,
-    "config": {
-        "name": "my-lambda-function",
-        "instances": [
-            ""
-        ]
-    }
-    },
-    "actions": [
-    {
-        "name": "Perform Action",
-        "id": "action",
-        "description": "Choose action to take against EC2 instances.",
-        "type": "choice",
-        "values": {
-        "stop": "Stop Instance",
-        "terminate": "Terminate Instance",
-        "reboot": "Reboot Instance",
-        "hibernate": "Stop and Hibernate Instance"
-        },
-        "defaultValue": "stop"
-    },
-    {
-        "name": "Ignore Alert",
-        "description": "Ignore this alert.",
-        "type": "button",
-        "defaultValue": "ignore"
-    },
-    {
-        "name": "Disable Alert",
-        "description": "Disable this alert.",
-        "type": "button",
-        "defaultValue": "disable"
-    }
-    ],
-    "defaultAction": "Perform Action"
-  }
-}
-```
 
 ## Channel Template
 

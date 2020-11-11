@@ -18,6 +18,8 @@ A Signal message is sent by reporters into Syntinel to generate an alert to one 
         "reporterId": { "type": "string" },
         "routerId": { "type": "string" },
         "routerType": { "type": "string" },
+        "template": { "type": "string" },
+        "arguments": { "type": "object" },
         "cues": {
             "type": "object",
             "additionalProperties": {
@@ -104,6 +106,8 @@ A Signal message is sent by reporters into Syntinel to generate an alert to one 
 |*defaultCue*|String|No|(Not Yet Implemented)The key value of the cue option to take by default.
 |*defaultCueTimeout*|Integer|No|(Not Yet Implemented)The amount of time (in seconds) to wait before executing the defaultCue.
 |includeId|Boolean|No|Flag to indicate whether the SignalId should be included in the display of the message.  *(Default Value = true)*
+|template|String|No|The [Template](../../core/templates.md) Id to be used for this Signal.  (TemplateType = Signal)
+|arguments|Dictionary of Objects|No|The arguments to be passed into the template for completing the Signal.
 
 #### **CueOption**
 |Field|Type|Required|Description
@@ -219,9 +223,118 @@ Result In Slack :
 ![](../../resources/signals/signal-slack-1.png)
 ![](../../resources/signals/signal-slack-2.png)
 
-#### **Sample Signal Using A Template**
+#### **Sample Signal Using A Signal Template**
 
-Same as the signal above, but the majority of the signal message is being stored as a template, and only the relevant fields would need to be passed now (instance and notify).
+Same as the "Sample Signal Message" above, except the entire Signal message (except for required fields like reporterId) is stored as a template.
+
+Signal : 
+````json
+{
+  "reporterId": "_default",
+  "template": "ec2-utilization",
+  "arguments": {
+    "instance": "i-8675309JENNY",
+    "notify": false
+  }
+}````
+
+Template Record:
+````json
+{
+  "_id": "ec2-utilization",
+  "_type": "Signal",
+  "parameters": {
+    "instance": [
+      {
+        "path": "cues.ec2.description",
+        "replace": "INSTANCE_ID"
+      },
+      {
+        "path": "cues.ec2.resolver.config.instances[0]"
+      }
+    ],
+    "notify": [
+      {
+        "path": "cues.ec2.resolver.notify"
+      }
+    ]
+  },
+  "template": {
+    "name": "Utilization",
+    "description": "EC2 Utilization Montior",
+    "includeId": true,
+    "maxReplies": 1,
+    "cues": {
+      "ec2": {
+        "actions": [
+          {
+            "defaultValue": "stop",
+            "description": "Choose action to take against EC2 instances.",
+            "id": "action",
+            "name": "Perform Action",
+            "type": "choice",
+            "values": {
+              "hibernate": "Stop and Hibernate Instance",
+              "reboot": "Reboot Instance",
+              "stop": "Stop Instance",
+              "terminate": "Terminate Instance"
+            }
+          },
+          {
+            "defaultValue": "ignore",
+            "description": "Ignore this alert.",
+            "name": "Ignore Alert",
+            "type": "button"
+          },
+          {
+            "defaultValue": "disable",
+            "description": "Disable this alert.",
+            "name": "Disable Alert",
+            "type": "button"
+          }
+        ],
+        "defaultAction": "Perform Action",
+        "description": "Server [INSTANCE_ID] has been running for 7 days.  Would you like to take action against it?",
+        "inputs": [
+          {
+            "defaultValue": "Default Comment Value Here",
+            "description": "Choose action to take against EC2 instances.",
+            "id": "comment",
+            "name": "Enter Comment",
+            "type": "text"
+          }
+        ],
+        "name": "EC2 Usage",
+        "resolver": {
+          "config": {
+            "instances": [
+              "i-888888888888"
+            ]
+          },
+          "name": "Echo",
+          "notify": true
+        }
+      }
+    },
+    "defaultCue": "ec2-template",
+    "defaultCueTimeout": 4320
+  }
+}
+````
+
+Result In Teams :
+
+![](../../resources/signals/signal-template-teams.png)
+
+Result In Slack : 
+
+![](../../resources/signals/signal-template-slack.png)
+
+
+
+#### **Sample Signal Using A Cue Template**
+
+Same as the "Sample Signal Message" above, but only the Cue portion of the messages is being stored as a template.  This is used when you want to build a portion of a message to be used across multiple Signal messages (or templates).
 
 
 Signal : 
