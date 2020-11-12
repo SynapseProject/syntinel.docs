@@ -143,7 +143,7 @@ The message below represents a resolver that monitors server uptime and asks sub
           },
           "id": "0X86F3V1P",
           "isValidReply": true,
-          "message": "action : hibernate",
+          "message": "ec2-action : hibernate",
           "newStatus": "Completed",
           "sendToChannels": true
       }
@@ -157,7 +157,7 @@ The message below represents a resolver that monitors server uptime and asks sub
       "time": "2020-10-07T22:29:03.4970258Z",
       "variables": [
         {
-          "name": "action",
+          "name": "ec2-action",
           "values": [
             "hibernate"
           ]
@@ -172,7 +172,7 @@ The message below represents a resolver that monitors server uptime and asks sub
           {
             "defaultValue": "stop",
             "description": "Choose action to take against EC2 instances.",
-            "id": "action",
+            "id": "ec2-action",
             "name": "Perform Action",
             "type": "choice",
             "values": {
@@ -185,7 +185,7 @@ The message below represents a resolver that monitors server uptime and asks sub
           {
             "defaultValue": "ignore",
             "description": "Ignore this alert.",
-            "id": null,
+            "id": "signal-action",
             "name": "Ignore Alert",
             "type": "button",
             "values": null
@@ -193,14 +193,14 @@ The message below represents a resolver that monitors server uptime and asks sub
           {
             "defaultValue": "disable",
             "description": "Disable this alert.",
-            "id": null,
+            "id": "signal-action",
             "name": "Disable Alert",
             "type": "button",
             "values": null
           }
         ],
         "arguments": null,
-        "defaultAction": "Perform Action",
+        "defaultAction": "ec2-action",
         "description": "Server [i-888888888888] has been running for 7 days.  Would you like to take action against it?",
         "inputs": [
 
