@@ -185,7 +185,7 @@ Referenced Classes:
                 "actions": [
                     {
                         "name": "Perform Action",
-                        "id": "action",
+                        "id": "ec2-action",
                         "description": "Choose action to take against EC2 instances.",
                         "type": "choice",
                         "values": {
@@ -198,7 +198,7 @@ Referenced Classes:
                     },
                     {
                         "name": "Ignore Alert",
-                        "id": null,
+                        "id": "signal-action",
                         "description": "Ignore this alert.",
                         "type": "button",
                         "values": null,
@@ -206,7 +206,7 @@ Referenced Classes:
                     },
                     {
                         "name": "Disable Alert",
-                        "id": null,
+                        "id": "signal-action",
                         "description": "Disable this alert.",
                         "type": "button",
                         "values": null,
@@ -227,7 +227,7 @@ Referenced Classes:
             "cueId": "ec2",
             "variables": [
                 {
-                    "name": "action",
+                    "name": "ec2-action",
                     "values": [
                         "reboot"
                     ]

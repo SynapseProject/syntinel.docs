@@ -133,7 +133,7 @@ A Signal message is sent by reporters into Syntinel to generate an alert to one 
 |Field|Type|Required|Description
 |-----|----|--------|-----------
 |name|String|No|The name for the input or action that is to be displayed.
-|*id*|String|Yes|(Not Yet Implemented) A unique id for this action.  Will be used in conjunction with the "defaultAction" for this cue.
+|id|String|No|An id for this action.  This will be returned with the value selected by the subscriber.  (*Default Value = "action"*)  
 |description|String|No|A description for the input or action that is to be displayed.
 |type|Choice of [VariableType](#variabletype)|Yes|The type of action or input object to display.
 |defaultValue|String|Maybe|The default value for this action or input.  Depending on the "type" field, this may be a required value.
@@ -181,7 +181,7 @@ The logic for actually interacting with the ec2 instance would be in the lambda 
       "actions": [
         {
           "name": "Perform Action",
-          "id": "action",
+          "id": "ec2-action",
           "description": "Choose action to take against EC2 instances.",
           "type": "choice",
           "values": {
@@ -194,18 +194,20 @@ The logic for actually interacting with the ec2 instance would be in the lambda 
         },
         {
           "name": "Ignore Alert",
+          "id": "signal-action",
           "description": "Ignore this alert.",
           "type": "button",
           "defaultValue": "ignore"
         },
         {
           "name": "Disable Alert",
+          "id": "signal-action",
           "description": "Disable this alert.",
           "type": "button",
           "defaultValue": "disable"
         }
       ],
-      "defaultAction": "Perform Action"
+      "defaultAction": "ec2-action"
     }
   },
   "defaultCue": "ec2Usage",
@@ -270,7 +272,7 @@ Template Record:
           {
             "defaultValue": "stop",
             "description": "Choose action to take against EC2 instances.",
-            "id": "action",
+            "id": "ec2-action",
             "name": "Perform Action",
             "type": "choice",
             "values": {
@@ -283,17 +285,19 @@ Template Record:
           {
             "defaultValue": "ignore",
             "description": "Ignore this alert.",
+            "id": "signal-action",
             "name": "Ignore Alert",
             "type": "button"
           },
           {
             "defaultValue": "disable",
             "description": "Disable this alert.",
+            "id": "signal-action",
             "name": "Disable Alert",
             "type": "button"
           }
         ],
-        "defaultAction": "Perform Action",
+        "defaultAction": "ec2-action",
         "description": "Server [INSTANCE_ID] has been running for 7 days.  Would you like to take action against it?",
         "inputs": [
           {
@@ -316,7 +320,7 @@ Template Record:
         }
       }
     },
-    "defaultCue": "ec2-template",
+    "defaultCue": "ec2",
     "defaultCueTimeout": 4320
   }
 }
@@ -386,6 +390,7 @@ Template Record:
         "defaultValue": "stop",
         "description": "Indicates action to take against EC2 instances.",
         "name": "Choose Action",
+        "id": "ec2-action",
         "type": "choice",
         "values": {
           "hibernate": "Stop and Hibernate Instance",
@@ -397,17 +402,19 @@ Template Record:
       {
         "defaultValue": "ignore",
         "description": "Ingore this alert.",
+        "id": "signal-action",
         "name": "Ignore Alert",
         "type": "button"
       },
       {
         "defaultValue": "disable",
         "description": "Disable this alert.",
+        "id": "signal-action",
         "name": "Disable Alert",
         "type": "button"
       }
     ],
-    "defaultAction": "Ignore Alert",
+    "defaultAction": "signal-action",
     "description": "Server [INSTANCE_ID] has been running for 7 days.  Would you like to take action against it?",
     "name": "EC2 Active",
     "resolver": {
