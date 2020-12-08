@@ -35,7 +35,7 @@ See [Resolver Input](./overview.md#resolver-input) section of the [Resolvers](./
 
 ### Execution Names
 
-Each run of an Amazon Step Function is given a unique execution name.  By default, Syntinel provides a name in the format **syntinel-\<signalid>-\<actionid>**, which should be unique for each action sent in.
+Each run of an Amazon Step Function is given a unique execution name.  By default, Syntinel provides a name in the format **syntinel-*SIGNALID*-*ACTIONID***, which should be unique for each action sent in.
 
 The config option *useDefaultName* tells Syntinel to use the default value from Amazone for the execution name, which is a GUID.
 
