@@ -45,20 +45,20 @@ Finally, if you want to provide your own execution name for each run of a step f
 
 ````json
 {
-    "arn": "arn:aws:lambda:us-east-1:123456789012:function:echo"
+    "arn": "arn:aws:states:us-east-1:123456789012:stateMachine:HelloWorld"
 }
 ````
 
 ````json
 {
-    "arn": "arn:aws:lambda:us-east-1:123456789012:function:echo",
+    "arn": "arn:aws:states:us-east-1:123456789012:stateMachine:HelloWorld",
     "useDefaultName": true
 }
 ````
 
 ````json
 {
-    "arn": "arn:aws:lambda:us-east-1:123456789012:function:echo",
+    "arn": "arn:aws:states:us-east-1:123456789012:stateMachine:HelloWorld",
     "executionName": "MyCustomExecutionName-001"
 }
 ````
