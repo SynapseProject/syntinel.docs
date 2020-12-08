@@ -21,6 +21,7 @@ pages:
   - Overview: resolvers/overview.md
   - Echo Resolver: resolvers/echo.md
   - AWSLambda Resolver: resolvers/aws-lambda.md
+  - AWSStepFunction Resolver: resolvers/aws-stepfunction.md
 - Implementations:
   - Amazon Web Services (AWS): implementations/amazon-web-services.md
 

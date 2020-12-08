@@ -10,7 +10,7 @@ An example would be the AWSLambda resolver.  It knows how to forward the action 
 |----|-----------
 |[Echo](./echo.md)|Simply echos back the variables received in the Cue message.
 |[AWSLambda](./aws-lambda.md)|Calls an AWS Lambda function to resolve the Cue.
-|*AWSStepFunction*|(Not Yet Implemented) Calls an AWS Step function to resolve the Cue.
+|[AWSStepFunction](./aws-stepfunction.md)|Calls an AWS Step function to resolve the Cue.
 |*AWSSystemManager*|(Not Yet Implemented) Executes a command on an EC2 instance using the AWS System Manager agent.
 |*Rest*|(Not Yet Implemented) Sends the ResolverRequest to a REST Api via a POST request.
 

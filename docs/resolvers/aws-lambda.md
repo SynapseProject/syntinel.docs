@@ -16,10 +16,9 @@ See [Resolver Input](./overview.md#resolver-input) section of the [Resolvers](./
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "required": [ "name" ],
+  "required": [ "arn" ],
   "properties": {
-    "name": { "type": "string" },
-    "region": { "type": "string" }
+    "arn": { "type": "string" }
   }
 }
 ````
@@ -28,14 +27,12 @@ See [Resolver Input](./overview.md#resolver-input) section of the [Resolvers](./
 
 |Field|Type|Required|Description
 |-----|----|--------|-----------
-|name|String|Yes|The name of the lambda function to be called (case-sensitive)
-|region|String|No|The AWS Region string where the lambda is located.  *(Example: us-east-1)*
+|arn|String|Yes|The Amazon Resource Name (ARN) for the lambda function that will be called.
 
 ### Example
 
 ````json
 {
-    "name": "MyLambdaFunction",
-    "region": "us-east-1"
+    "arn": "arn:aws:lambda:us-east-1:123456789012:function:echo"
 }
 ````
