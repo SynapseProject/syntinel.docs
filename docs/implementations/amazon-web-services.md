@@ -139,7 +139,7 @@ To determine which version of Syntinel is running in any given Amazon account, v
 
 ![Cloud Formation Outputs](../resources/versions/cloudformation.png)
 
-Each cloud formation template includes a version variable in athe  output variable of the stack.  This will let you know which release version of the templates were used to install this Syntinel applicaiton.
+Each cloud formation template includes a version variable in the  output variable of the stack.  This will let you know which release version of the templates were used to install this Syntinel applicaiton.
 
 ### Lambda Function Code
 
@@ -160,7 +160,7 @@ The main URL for making REST-based calls into Syntinel can be found in the outpu
 
 ### Reload Lambda Functions
 
-When the DotNet code behind the Syntinel functions needs to be updated, but the cloud formation templates have not been modified, execute the following REST call into Syntinel.
+When the DotNet code behind the Syntinel lambda functions needs to be updated, but the cloud formation templates have not been modified, execute the following REST call into Syntinel.
 
 The returned JSON will describe each lambda method refreshed in detail.
 
@@ -234,7 +234,7 @@ When redeploying or moving a Syntinel instance to another region or account, it 
 
 This admin method exports the configuration tables (and optionally, the Signal history table) to an S3 bucket as a JSON file.
 
-If no filename is provided in the request header, Syntinel will write the export to the S3 bucket where the lambda code and cloud formation templates were executed at installation.
+If no filename is provided in the request body, Syntinel will write the export to the S3 bucket where the lambda code and cloud formation templates were executed at installation.
 
 #### Request
 ````
@@ -281,9 +281,9 @@ URL:        https://{{BaseUrl}}/admin/database/export
 
 After redeploying or moving a Syntinel instance to another region or account, you'll want to import the configuration data you exported earlier.  
 
-This admin method imports the configuration tables (and optionally, the Signal history table) fron an S3 bucket JSON file into the DynamoDB tables.
+This admin method imports the configuration tables (and optionally, the Signal history table) from an S3 bucket JSON file into the DynamoDB tables.
 
-If no filename is provided in the request header, Syntinel will look for the file in the S3 bucket where the lambda code and cloud formation templates were executed at installation.
+If no filename is provided in the request body, Syntinel will look for the file in the S3 bucket where the lambda code and cloud formation templates were executed at installation.
 
 #### Request
 ````
