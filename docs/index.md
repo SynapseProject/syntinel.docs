@@ -1,4 +1,4 @@
-# Welcome To Syntinel
+# Welcome to Syntinel
 
 Syntinel is a notification engine that communicates messages to a variety of endpoints and can take actions based on replies to those messages.
 
